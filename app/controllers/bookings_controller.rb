@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
     @booking.power = @power
     @booking.user = current_user
     if @booking.save
-      redirect_to power_path(@power)
+      redirect_to bookings_path
     else
       render "powers/show", status: :unprocessable_entity, booking:@booking
     end

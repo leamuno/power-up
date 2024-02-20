@@ -8,16 +8,3 @@
 <br>
 
 <%= render 'powers/form' %>
-
-<br>
-<hr>
-<br>
-
-<% counter = 1 %>
-<% @bookings.each do |booking| %>
-  <p><strong>Booking <%= counter %></strong></p>
-  <p><u>Start:</u> <%= booking.start_date %></p>
-  <p><u>End:</u> <%= booking.end_date %></p>
-  <% counter += 1 %>
-  <br>
-<% end %>
