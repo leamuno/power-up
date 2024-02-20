@@ -1,0 +1,11 @@
+ <div class="m-4">
+    <h1 class="mb-4">All Available Powers</h1>
+
+    <% @powers.each do |power| %>
+      <div class="card card-product mb-3">
+        <div class="card-body">
+          <h2 class="card-title"><%= link_to power.name, power_path(power), class: "text-decoration-none" %></h2>
+        </div>
+      </div>
+    <% end %>
+  </div>
