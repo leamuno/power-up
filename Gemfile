@@ -77,3 +77,4 @@ end
 
 # Custom Gems
 gem "devise"
+gem "faker"
