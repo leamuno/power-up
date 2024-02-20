@@ -1,0 +1,18 @@
+.booking-form-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 50px;
+}
+
+.booking-form-container .form-label {
+  font-size: 1rem;
+}
+
+.booking-form-title {
+  font-size: 1.5rem;
+}
+
+.booking-form-container .simple_form {
+  display: flex;
+  flex-direction: column;
+}

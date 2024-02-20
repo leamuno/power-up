@@ -1,0 +1,27 @@
+<h2>Your Bookings</h2>
+<% current_user.bookings.each do |booking| %>
+  <p>You have booked <%= booking.power.name %> on <%= booking.start_date %> until <%= booking.end_date %></p>
+<% end %>
+<h2>Active Requests</h2>
+<% current_user.bookings_as_owner.each do |booking| %>
+  <div class="d-flex">
+    <p class><%= booking.user.email %> wants to book <%= booking.power.name %> on <%= booking.start_date %> until <%= booking.end_date %></p>
+    <p class="mx-2">
+    <% if booking.status %>
+      Approved
+    <% else %>
+      Pending
+    <% end %>
+    </p>
+    <div class="mx-3">
+      <%= link_to bookings_path, class: 'text-success text-decoration-none' do %>
+        <i class="fa-solid fa-check"></i>
+      <% end %>
+    </div>
+    <div>
+      <%= link_to booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Remove this booking?" }, class: 'text-danger text-decoration-none' do %>
+        <i class="fa-solid fa-minus"></i>
+      <% end %>
+    </div>
+  </div>
+<% end %>
