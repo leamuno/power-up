@@ -1,11 +1,19 @@
- <div class="m-4">
-    <h1 class="mb-4">All Available Powers</h1>
-
-    <% @powers.each do |power| %>
-      <div class="card card-product mb-3">
-        <div class="card-body">
-          <h2 class="card-title"><%= link_to power.name, power_path(power), class: "text-decoration-none" %></h2>
+ <div class="background-banner">
+  <h1 class="banger-font center text-center white-text black-border">All Available Powers</h1>
+  <div class="card-container m-4">
+  <% @powers.each do |power| %>
+    <%= link_to power_path(power) do %>
+      <div class="card-power">
+        <%= cl_image_tag power.photo.key, height: 300, width: 400, crop: :fill %>
+        <div class="card-power-infos">
+          <div>
+            <h2><%= power.name %></h2>
+            <p><%= power.description %></p>
+          </div>
+          <h2 class="card-power-pricing"><%= power.price %>€</h2>
         </div>
       </div>
     <% end %>
+  <% end %>
   </div>
+</div>
