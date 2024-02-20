@@ -1,0 +1,8 @@
+<%= simple_form_for @power do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :category, collection: Power::CATEGORIES, include_blank: false %>
+  <%= f.input :price, as: :float %>
+  <%= f.input :photo, as: :file %>
+  <%= f.button :submit %>
+<% end %>
