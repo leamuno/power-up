@@ -1,7 +1,11 @@
 class PowersController < ApplicationController
 
   def index
-    @powers = Power.all
+    if params[:powersearch].present?
+      @powers = Power.where('name LIKE ?', "%#{params[:powersearch]}%")
+    else
+      @powers = Power.all
+    end
   end
 
   def show
