@@ -1,25 +1,26 @@
-.card-power {
-overflow: hidden;
+.booking-card-power {
+  overflow: hidden;
   height: 120px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  border-radius: 10px;
 }
 
-.card-power img {
+.booking-card-power img {
   height: 100%;
   width: 120px;
   object-fit: cover;
 }
 
-.card-pwer h2 {
+.booking-card-power h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-power p {
+.booking-card-power p {
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
@@ -27,6 +28,16 @@ overflow: hidden;
   margin-top: 8px;
 }
 
-.card-power .card-power-infos {
+.booking-card-power .card-power-infos {
   padding: 16px;
+}
+
+.accept-decline-container {
+  align-items: flex-end;
+  display: flex;
+  justify-content: space-between;
+}
+
+.plus-minus-container {
+  display: flex;
 }
