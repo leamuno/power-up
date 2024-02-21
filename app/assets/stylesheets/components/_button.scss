@@ -9,10 +9,10 @@
   font-size: 1.2rem;
   margin-left: auto;
   margin-right: auto;
-  border-radius: 10px;
-  box-shadow: black 3px 4px;
+  margin-top: 40px;
   transition: box-shadow 0.3s, color 0.3s;
   transform: skew(-5deg);
+  box-shadow: black 3px 4px;
 
 
   &.submit-btn-red:hover {
@@ -25,7 +25,7 @@
     letter-spacing: 0.1rem;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 10px;
     box-shadow: black 3px 4px 6px;
+    margin-top: 40px;
   }
 }
