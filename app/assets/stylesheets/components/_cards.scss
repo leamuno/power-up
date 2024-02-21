@@ -1,15 +1,18 @@
 .card-power {
   overflow: hidden;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   width: 100%;
   margin-bottom: 10px;
-  border-radius: 20px;
+  // border-radius: 5px;
+  border: 4px solid black;
   background-color: white;
   color: black;
+  transition: border 0.15s;
+  transition: background-color 0.15s;
 }
 
 .card-power:hover {
-  background-color: rgb(200, 200, 200);
+  background-color: rgb(230, 230, 230);
+  border: 4px solid rgb(230, 230, 230);
 }
 
 .card-power > img {
