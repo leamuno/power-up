@@ -1,12 +1,23 @@
-<div class="power-show-card">
-  <h1><%= @power.name %></h1>
-  <p><%= @power.category %></p>
-  <p><%= @power.description %></p>
-  <p><%= @power.price %>$</p>
-</div>
+<div class="power-show-info">
+  <h1 class="banger-font power-show-title"><%= @power.name %></h1>
+  <div class="power-show-container">
+    <div class="power-show-card">
+      <div class="power-image-container">
+        <%= cl_image_tag @power.photo.key, height: 350, width: 500, crop: :fill, class:'power-show-display-image' %>
+        <%= cl_image_tag @power.user.photo.key, height: 90, width: 90, crop: :fill, class:'power-show-user-avatar' %>
+      </div>
+      <div class="power-text-info">
+        <p><strong>Category:</strong> <%= @power.category %></p>
+        <hr>
+        <p><strong>Description:</strong> <%= @power.description %></p>
+        <p><strong><%= @power.price %>$</strong></p>
+      </div>
+    </div>
 
-<br>
+    <br>
 
-<div class="booking-form-container">
-<%= render 'powers/form' %>
+    <div class="booking-form-container">
+    <%= render 'powers/form' %>
+    </div>
+  </div>
 </div>
