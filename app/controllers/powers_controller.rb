@@ -2,7 +2,7 @@ class PowersController < ApplicationController
 
   def index
     if params[:powersearch].present?
-      @powers = Power.where('name LIKE ?', "%#{params[:powersearch]}%")
+      @powers = Power.where('lower(name) LIKE ?', "%#{params[:powersearch].downcase}%")
       @powers = @powers.where.not(user: current_user)
     else
       @powers = Power.where.not(user: current_user)
