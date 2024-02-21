@@ -2,12 +2,23 @@
 <h1 class="banger-font center text-center white-text black-border">Your Bookings</h1>
 <div class="card-container m-4">
   <% current_user.bookings.each do |booking| %>
-  <div class="card-power">
-  <%= cl_image_tag booking.power.photo.key, height: 300, width: 400, crop: :fill %>
-  <div class="card-power-infos">
-    <h2><%= booking.power.name %></h2>
-    <p><%= booking.power.description %> <strong>relevant info</strong> only.</p>
-    <h2 class="card-power-pricing"><%= booking.power.price %>€</h2>
+    <div class="card-power">
+      <%= cl_image_tag booking.power.photo.key, height: 300, width: 400, crop: :fill %>
+    <div class="card-power-infos">
+      <div class="d-flex-column">
+        <h2><%= booking.power.name %></h2>
+        <p>Booked on <%= booking.start_date %> for <%= (booking.end_date - booking.start_date).to_i %> days.</p>
+        <div class="d-inline-flex">
+        <p class="card-power-pricing">Total $<%= booking.power.price * (booking.end_date - booking.start_date) %>0</p>
+        <p>
+          <% if booking.status %>
+            Approved
+          <% else %>
+            Pending
+          <% end %>
+        </p>
+        </div>
+      </div>
   </div>
   </div>
       <% end %>
@@ -20,9 +31,9 @@
   <% current_user.bookings_as_owner.each do |booking| %>
     <div class="card-power">
       <%= cl_image_tag booking.power.photo.key, height: 300, width: 400, crop: :fill %>
-      <div class="card-power-infos">
+      <div class="card-power-infos d-flex">
         <div>
-          <h2><%= booking.user.email %> wants to book <%= booking.power.name %> on <%= booking.start_date %> until <%= booking.end_date %></h2>
+          <h2><%= booking.user.first_name %> <%= booking.user.last_name %> wants to book <%= booking.power.name %> on <%= booking.start_date %> until <%= booking.end_date %></h2>
           <p>
             <% if booking.status %>
               Approved
