@@ -20,7 +20,7 @@
   <% current_user.bookings_as_owner.each do |booking| %>
     <div class="banger-font booking-card-power">
       <%= cl_image_tag booking.power.photo.key, height: 300, width: 400, crop: :fill %>
-      <div class="card-power-infos">
+      <div class="card-power-infos d-flex">
         <div>
           <h2 class="banger-font"> <%= booking.user.email %> wants to book <%= booking.power.name %> on <%= booking.start_date %> until <%= booking.end_date %></h2>
 

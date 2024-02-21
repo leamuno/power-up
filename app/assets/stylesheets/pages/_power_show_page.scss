@@ -1,4 +1,95 @@
-.power-show-card {
+.power-show-info {
+  background-color: rgba($gray-dark,0.95);
+  width: 90vw;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  border: solid black 10px;
+  padding-bottom: 50px;
+  flex-direction: column;
+}
+
+.power-show-title {
+  margin-bottom: 30px;
+  color: $white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   background-color: $gray-light;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  border: solid black 3px;
+  border-left: none;
+  border-right: none;
+  margin-top: 15px;
+}
+
+.power-show-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.power-show-card {
   color: $black;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.power-image-container {
+  position: relative;
+}
+
+.power-show-display-image {
+  border: solid black 5px;
+}
+
+.power-show-user-avatar {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  border-radius: 50%;
+  border: solid black 3px;
+}
+
+.power-text-info {
+  background-color: $white;
+  border: solid black 5px;
+  border-top: none;
+  width: 500px;
+  padding: 15px;
+  position: relative;
+}
+
+.power-text-top-row {
+  display: flex;
+  align-items: center;
+}
+
+.power-text-top-row i {
+  border: black solid 2px;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.power-text-top-row  p {
+  margin: 0;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.power-price-tag {
+  text-align: end;
+  font-weight: bold;
+  color: $red;
+  font-size: 1.3rem;
+  letter-spacing: 0.2rem;
+  background-color: $yellow;
+  position: absolute;
+  bottom: 10px;
+  right: 25px;
+  padding: 10px;
+  border: solid black 3px;
+  border-radius: 100%;
 }

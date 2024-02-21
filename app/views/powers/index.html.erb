@@ -1,5 +1,11 @@
 <div class="background-banner">
-  <h1 class="banger-font center text-center white-text black-border">All Available Powers</h1>
+  <h1 class="banger-font center text-center white-text">All Available Powers</h1>
+  <div class="index-form">
+    <form method="get" action="<%= powers_path %>">
+      <input type="text" class= "banger-font" name="powersearch" placeholder="Search powers...">
+      <button type="submit" class="banger-font">Search</button>
+    </form>
+  </div>
   <div class="card-container m-4">
     <% @powers.each do |power| %>
       <%= link_to power_path(power) do %>

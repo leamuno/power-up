@@ -4,7 +4,7 @@ class Power < ApplicationRecord
   has_one_attached :photo
 
 
-  CATEGORIES = ["strength", "agility", "magic", "mental", "summon"]
+  CATEGORIES = ["strength", "agility", "magic", "mental", "summon", "transformation", "equipment"]
 
   validates :name, presence: true
   validates :description, presence: true, length: { minimum: 10 }
