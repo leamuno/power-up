@@ -1,7 +1,7 @@
 class PowersController < ApplicationController
 
   def index
-    @powers = Power.all
+    @powers = Power.where.not(user: current_user)
   end
 
   def show
