@@ -1,3 +1,31 @@
 .submit-btn-red {
-  background-color: $red;
+  background-color: $yellow;
+  color: $red;
+  font-weight: bold;
+  border: solid black 3px;
+  height: 50px;
+  width: 300px;
+  letter-spacing: 0.1rem;
+  font-size: 1.2rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  box-shadow: black 3px 4px;
+  transition: box-shadow 0.3s, color 0.3s;
+  transform: skew(-5deg);
+
+
+  &.submit-btn-red:hover {
+    color: $red2;
+    background-color: $yellow;
+    font-weight: bold;
+    border: solid black 3px;
+    height: 50px;
+    width: 300px;
+    letter-spacing: 0.1rem;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    box-shadow: black 3px 4px 6px;
+  }
 }
