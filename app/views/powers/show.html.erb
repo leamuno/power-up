@@ -5,7 +5,7 @@
       <div class="power-image-container">
         <%= cl_image_tag @power.photo.key, height: 350, width: 500, crop: :fill, class:'power-show-display-image' %>
         <%= cl_image_tag @power.user.photo.key, height: 90, width: 90, crop: :fill, class:'power-show-user-avatar' %>
-        <p class="power-price-tag banger-font"><strong><%= @power.price %>€</strong></p>
+        <p class="power-price-tag banger-font"><strong>$<%= @power.price %>0</strong></p>
       </div>
       <div class="power-text-info">
         <div class="power-text-top-row">
