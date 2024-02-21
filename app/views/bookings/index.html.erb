@@ -1,27 +1,48 @@
-<h2>Your Bookings</h2>
-<% current_user.bookings.each do |booking| %>
-  <p>You have booked <%= booking.power.name %> on <%= booking.start_date %> until <%= booking.end_date %></p>
-<% end %>
-<h2>Active Requests</h2>
-<% current_user.bookings_as_owner.each do |booking| %>
-  <div class="d-flex">
-    <p class><%= booking.user.email %> wants to book <%= booking.power.name %> on <%= booking.start_date %> until <%= booking.end_date %></p>
-    <p class="mx-2">
-    <% if booking.status %>
-      Approved
-    <% else %>
-      Pending
-    <% end %>
-    </p>
-    <div class="mx-3">
-      <%= link_to bookings_path, class: 'text-success text-decoration-none' do %>
-        <i class="fa-solid fa-check"></i>
-      <% end %>
-    </div>
-    <div>
-      <%= link_to booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Remove this booking?" }, class: 'text-danger text-decoration-none' do %>
-        <i class="fa-solid fa-minus"></i>
-      <% end %>
-    </div>
+<div class="background-banner">
+<h1 class="banger-font center text-center white-text black-border">Your Bookings</h1>
+<div class="card-container m-4">
+  <% current_user.bookings.each do |booking| %>
+  <div class="card-power">
+  <%= cl_image_tag booking.power.photo.key, height: 300, width: 400, crop: :fill %>
+  <div class="card-power-infos">
+    <h2><%= booking.power.name %></h2>
+    <p><%= booking.power.description %> <strong>relevant info</strong> only.</p>
+    <h2 class="card-power-pricing"><%= booking.power.price %>€</h2>
   </div>
-<% end %>
+  </div>
+      <% end %>
+</div>
+</div>
+
+<div class="background-banner">
+<h1 class="banger-font center text-center white-text black-border">Active Requests</h1>
+<div class="card-container m-4">
+  <% current_user.bookings_as_owner.each do |booking| %>
+    <div class="card-power">
+      <%= cl_image_tag booking.power.photo.key, height: 300, width: 400, crop: :fill %>
+      <div class="card-power-infos">
+        <div>
+          <h2><%= booking.user.email %> wants to book <%= booking.power.name %> on <%= booking.start_date %> until <%= booking.end_date %></h2>
+          <p>
+            <% if booking.status %>
+              Approved
+            <% else %>
+              Pending
+            <% end %>
+          </p>
+        </div>
+        <div class="mx-3">
+          <%= link_to bookings_path, class: 'text-success text-decoration-none' do %>
+            <i class="fa-solid fa-check"></i>
+          <% end %>
+        </div>
+        <div>
+          <%= link_to booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Remove this booking?" }, class: 'text-danger text-decoration-none' do %>
+            <i class="fa-solid fa-minus"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+</div>
