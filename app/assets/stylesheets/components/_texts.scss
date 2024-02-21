@@ -16,5 +16,15 @@ a {
 
 .comic-font {
   font-family: "Comic Neue", system-ui;
+}
 
+h1 {
+  text-shadow: black 1px 2px;
+  background-color: $gray-light;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  border: solid black 2px;
+  text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black, 0 -1.5px black;
+  margin-top: 25px;
 }
