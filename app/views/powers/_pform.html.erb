@@ -1,8 +1,10 @@
-<%= simple_form_for @power do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :category, collection: Power::CATEGORIES, include_blank: false %>
-  <%= f.input :price, as: :float %>
-  <%= f.input :photo, as: :file %>
-  <%= f.button :submit %>
-<% end %>
+<div class="bg-secondary mx-5 px-3 text-light">
+  <%= simple_form_for @power do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :category, collection: Power::CATEGORIES, include_blank: false %>
+    <%= f.input :price, as: :float %>
+    <%= f.input :photo, as: :file %>
+    <%= f.button :submit, "List New Power", class: "btn-primary text-light" %>
+  <% end %>
+</div>
