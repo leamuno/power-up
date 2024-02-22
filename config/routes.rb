@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :powers, only: ["index", "show", "new", "create"] do
+  resources :powers do
     resources :bookings, only: ["create"]
   end
 

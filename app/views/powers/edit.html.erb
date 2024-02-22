@@ -1,0 +1,20 @@
+<h1>Edit <%= @power.name %></h1>
+<div class="px-3 bg-secondary mx-5">
+  <%= simple_form_for(@power) do |f| %>
+    <%= f.error_notification %>
+    <%= f.input :name,
+                label_html: { class: "text-light" } %>
+    <%= f.input :description,
+                label_html: { class: "text-light" } %>
+    <%= f.input :price, as: :float,
+                label_html: { class: "text-light" } %>
+    <%= f.input :photo, as: :file,
+                label_html: { class: "text-light" } %>
+    <%= f.button :submit, "Update", class: "text-light btn-primary"%>
+  <% end %>
+</div>
+<h1>Delete <%= @power.name %> </h1>
+<div class="px-3 bg-secondary mx-5">
+  <div class="text-light"><%= button_to "Delete Power", power_path(@power), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
+  <%= link_to "Home", root_path, class: "text-decoration-none text-light" %>
+</div>
