@@ -1,18 +1,16 @@
 class PowersController < ApplicationController
 
   def index
+    @powers = Power.where.not(user: current_user)
     if params[:powersearch].present? || params[:category].present?
       sql_query = <<~SQL
-      name @@ :q OR
-      description @@ :q OR
-      users.first_name @@ :q OR
-      users.last_name @@ :q
+      name ILIKE :q OR
+      description ILIKE :q OR
+      users.first_name ILIKE :q OR
+      users.last_name ILIKE :q
       SQL
-      @powers = Power.joins(:user).where(sql_query, q: "%#{params[:powersearch]}%") if params[:powersearch].present?
+      @powers = @powers.joins(:user).where(sql_query, q: "%#{params[:powersearch]}%") if params[:powersearch].present?
       @powers = @powers.where('category @@ ?', params[:category]) if params[:category].present?
-      @powers = @powers.where.not(user: current_user)
-    else
-      @powers = Power.where.not(user: current_user)
     end
   end
 

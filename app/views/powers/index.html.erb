@@ -13,7 +13,9 @@
           class: "small-bar full-height"
         %>
       <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-      <button type="submit" name="q" value="" class="btn btn-primary">Show All Powers</button>
+      <% if params[:powersearch].present? || params[:category].present? %>
+        <%= link_to "Show All Powers", powers_path, class: "btn btn-primary" %>
+      <% end %>
     <% end %>
   </div>
   <div class="card-container m-4">
