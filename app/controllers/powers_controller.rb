@@ -13,6 +13,8 @@ class PowersController < ApplicationController
     @power = Power.find(params[:id])
     @booking = Booking.new
     @bookings = @power.bookings.where(user: current_user)
+    @related_powers = Power.where(category: @power.category).where.not(id: @power.id).limit(3)
+
   end
 
   def new
