@@ -14,7 +14,14 @@ class BookingsController < ApplicationController
       render "powers/show", status: :unprocessable_entity, booking:@booking
     end
   end
-  
+
+  def update
+    @booking = Booking.find(params[:id])
+  if @booking.update(booking_params)
+    redirect_to bookings_path
+  end
+  end
+
   def destroy
     @booking = Booking.find(params[:id])
     @booking.destroy
@@ -24,6 +31,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date, :status)
   end
 end

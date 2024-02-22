@@ -5,14 +5,21 @@
       <div class="booking-card-power">
         <%= cl_image_tag booking.power.photo.key, height: 300, width: 400, crop: :fill %>
         <div class="card-power-infos">
-          <h2 class="banger-font"><%= booking.power.name %></h2>
+          <div class="d-flex align-items-center justify-content-between">
+            <h2 class="banger-font"><%= booking.power.name %></h2>
+            <%= link_to booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to cancel this booking?" }, class: 'text-danger text-decoration-none' do %>
+              <i class="fa-solid fa-trash"></i>
+            <% end %>
+          </div>
           <p class="banger-font">Booked on <%= booking.start_date %> for <%= (booking.end_date - booking.start_date).to_i %> days</p>
           <p class="banger-font"><strong>Total</strong> - $<%= booking.power.price * (booking.end_date - booking.start_date) %>0</p>
           <p class="banger-font">
-            <% if booking.status %>
-              Approved
-            <% else %>
+            <% if booking.nil? %>
               Pending
+            <% elsif booking.status %>
+              Accepted
+            <% else %>
+              Rejected
             <% end %>
           </p>
         </div>
@@ -20,37 +27,43 @@
     <% end %>
   </div>
 </div>
-
 <div class="background-banner">
   <h1 class="banger-font center text-center white-text black-border">Active Requests</h1>
   <div class="card-container m-4">
     <% current_user.bookings_as_owner.each do |booking| %>
-      <div class="banger-font booking-card-power">
+      <div class="booking-card-power">
         <%= cl_image_tag booking.power.photo.key, height: 300, width: 400, crop: :fill %>
-        <div class="card-power-infos d-flex">
-          <div>
-            <p class="banger-font"> <%= booking.user.first_name %> <%= booking.user.last_name %> wants to book <%= booking.power.name %> on <%= booking.start_date %> until <%= booking.end_date %></p>
+        <div class="card-power-infos">
+          <div class="d-flex align-items-center justify-content-between">
+            <h2 class="banger-font"><%= booking.power.name %></h2>
+            <%= link_to booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this booking?" }, class: 'text-danger text-decoration-none' do %>
+              <i class="fa-solid fa-trash"></i>
+            <% end %>
           </div>
-          <div class="accept-decline-container">
-            <p class="banger-font">
-              <% if booking.status %>
-                Approved
-              <% else %>
-                Pending
-              <% end %>
-            </p>
-            <div class="plus-minus-container">
-              <div class="mx-3">
-                <%= link_to bookings_path, class: 'text-success text-decoration-none' do %>
-                  <i class="fa-solid fa-check"></i>
+          <p class="banger-font"> <%= booking.user.first_name %> <%= booking.user.last_name %> wants to book <%= booking.power.name %> on <%= booking.start_date %> until <%= booking.end_date %></p>
+          <div class="d-flex">
+            <% unless booking.status? %>
+              <!-- Display Forms-->
+              <div class="d-flex">
+                <%= simple_form_for booking do |f| %>
+                  <%= f.input :status, as: :hidden, input_html: { value: true} %>
+                  <%= f.submit 'Accept', class: 'btn btn-info' %>
+                <% end %>
+                <%= simple_form_for booking do |f| %>
+                  <%= f.input :status, as: :hidden, input_html: { value: false} %>
+                  <%= f.submit 'Reject', class: 'btn btn-light' %>
                 <% end %>
               </div>
-              <div>
-                <%= link_to booking_path(booking), data: { turbo_method: :delete, turbo_confirm: "Remove this booking?" }, class: 'text-danger text-decoration-none' do %>
-                  <i class="fa-solid fa-minus"></i>
+            <% else %>
+              <!-- Display Status-->
+              <p class='booking-tag'>
+                <% if booking.status %>
+                  Approved
+                <% else %>
+                  Rejeceted
                 <% end %>
-              </div>
-            </div>
+              </p>
+            <% end %>
           </div>
         </div>
       </div>
