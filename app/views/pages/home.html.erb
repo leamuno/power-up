@@ -2,43 +2,48 @@
   <div class="banner-image">
     <div class="banner-text">
       <h1 class="banger-font display-5 fw-bold text-shadow"> Welcome to Power Up</h1>
-        <p class="banger-font display-5 fw-bold text-shadow">Unleash your potential by booking a power today!</p>
-        <% unless user_signed_in? %>
-          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary rounded-pill" %>
-        <% end %>
+      <p class="banger-font display-5 fw-bold text-shadow">Unleash your potential by booking a power today!</p>
+      <% unless user_signed_in? %>
+        <%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary rounded-pill" %>
+      <% end %>
     </div>
   </div>
 </div>
-
 <h1 class="banger-font center text-center white-text">Picks from Us</h1>
-  <div class="card-container m-4">
-    <% @powers.each do |power| %>
-      <%= link_to power_path(power) do %>
-        <div class="card-power">
-          <%= cl_image_tag power.photo.key, height: 300, width: 400, crop: :fill %>
-          <div class="card-power-infos">
-            <div>
-              <h2><%= power.name %></h2>
-              <p><%= power.description %></p>
-            </div>
-            <h2 class="card-power-pricing">$<%= power.price %>0</h2>
+<div class="card-container m-4">
+  <% @powers.each do |power| %>
+    <%= link_to power_path(power) do %>
+      <div class="card-power">
+        <%= cl_image_tag power.photo.key, height: 300, width: 400, crop: :fill %>
+        <div class="card-power-infos">
+          <div>
+            <h2><%= power.name %></h2>
+            <p><%= power.description %></p>
+          </div>
+          <div class="card-power-pricing">
+            <h2>$<%= power.price %>0</h2>
+            <p class="banger-font">/day</p>
           </div>
         </div>
-      <% end %>
+      </div>
     <% end %>
-  </div>
-
+  <% end %>
+</div>
 <h1 class="banger-font center text-center white-text">Recently Added</h1>
-  <div class="card-container m-4">
-    <% @recent_powers.each do |power| %>
-      <%= link_to power_path(power) do %>
-        <div class="card-power">
-          <%= cl_image_tag power.photo.key, height: 300, width: 400, crop: :fill %>
-          <div class="card-power-infos">
-            <div> <h2><%= power.name %></h2>
-              <p><%= power.description %></p>
-            </div>
-          <h2 class="card-power-pricing">$<%= power.price %>0</h2>
+<div class="card-container m-4">
+  <% @recent_powers.each do |power| %>
+    <%= link_to power_path(power) do %>
+      <div class="card-power">
+        <%= cl_image_tag power.photo.key, height: 300, width: 400, crop: :fill %>
+        <div class="card-power-infos">
+          <div> 
+            <h2><%= power.name %></h2>
+            <p><%= power.description %></p>
+          </div>
+          <div class="card-power-pricing">
+            <h2>$<%= power.price %>0</h2>
+            <p class="banger-font">/day</p>
+          </div>
         </div>
       </div>
     <% end %>
