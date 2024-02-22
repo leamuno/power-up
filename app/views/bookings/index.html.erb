@@ -14,7 +14,7 @@
           <p class="banger-font">Booked on <%= booking.start_date %> for <%= (booking.end_date - booking.start_date).to_i %> days</p>
           <p class="banger-font"><strong>Total</strong> - $<%= booking.power.price * (booking.end_date - booking.start_date) %>0</p>
           <p class="banger-font">
-            <% if booking.nil? %>
+            <% if booking.status.nil? %>
               Pending
             <% elsif booking.status %>
               Accepted
