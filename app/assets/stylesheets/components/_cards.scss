@@ -33,7 +33,7 @@
   opacity: .7;
   overflow: hidden;
   height: 40px;
-  width: 80%;
+  width: 100%;
   margin-bottom: 8px;
 }
 
@@ -58,11 +58,29 @@
 
 .card-power-pricing {
   position: absolute;
-  bottom: 24px;
-  right: 16px;
-  display: flex;
-  align-items: flex-end;
-  max-width: 20%;
+  text-align: center;
+  font-weight: bold;
+  color: $red;
+  font-size: 1.3rem;
+  letter-spacing: 0.2rem;
+  background-color: $yellow;
+  position: absolute;
+  bottom: 67px;
+  right: 5px;
+  padding: 10px;
+  border: solid black 3px;
+  border-radius: 50%;
+  width: 25%;
+  height: 60%;
+  display: block;
+}
+
+.card-power-pricing p {
+  position: absolute;
+  top: 25px;
+  margin: 0;
+  height: 16px;
+  width: 80%;
 }
 
 .card-container {
