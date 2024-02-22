@@ -34,9 +34,31 @@
           <p class="comic-font"><strong>Description:</strong> <%= @power.description %></p>
         </div>
       </div>
-      <br>
-      <div class="booking-form-container">
-        <%= render 'powers/form' %>
+    </div>
+
+    <br>
+
+<div class="booking-form-related-card-container">
+    <div class="booking-form-container">
+    <%= render 'powers/form' %>
+
+    </div>
+      <h2 class="banger-font center text-center white-text">Related Powers</h2>
+      <div class="card-container m-4">
+        <% @related_powers.each do |power| %>
+          <%= link_to power_path(power) do %>
+            <div class="card-power">
+              <%= cl_image_tag power.photo.key, height: 300, width: 400, crop: :fill %>
+              <div class="card-power-infos">
+                <div>
+                  <h2><%= power.name %></h2>
+                  <p><%= power.description %></p>
+                </div>
+                <h2 class="card-power-pricing">$<%= power.price %>0</h2>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>
