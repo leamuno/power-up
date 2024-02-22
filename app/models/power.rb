@@ -10,4 +10,5 @@ class Power < ApplicationRecord
   validates :description, presence: true, length: { minimum: 10 }
   validates :category, presence: true, inclusion: { in: Power::CATEGORIES }
   validates :price, presence: true, numericality: { only_float: true }
+
 end
