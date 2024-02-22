@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to powers_path, class: "navbar-brand" do %>
+    <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "pow.png", class: "navbar-logo" %>
     <% end %>
 
@@ -14,12 +14,14 @@
           <li class="banger-font nav-item">
             <%= link_to "Powers", powers_path, class: "nav-link" %>
           </li>
+          <li class="banger-font nav-item">
+            <%= link_to "Bookings", bookings_path, class: "nav-link" %>
+          </li>
           <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= cl_image_tag(current_user.photo.key, width: 40, height: 40, crop: :thumb, gravity: :face, class: "avatar", alt: "dropdown menu") %>
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Bookings", bookings_path, class: "dropdown-item" %>
               <%= link_to "Update Profile", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>

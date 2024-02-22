@@ -1,11 +1,16 @@
 class PowersController < ApplicationController
 
   def index
-    if params[:powersearch].present?
-      @powers = Power.where('lower(name) LIKE ?', "%#{params[:powersearch].downcase}%")
-      @powers = @powers.where.not(user: current_user)
-    else
-      @powers = Power.where.not(user: current_user)
+    @powers = Power.where.not(user: current_user)
+    if params[:powersearch].present? || params[:category].present?
+      sql_query = <<~SQL
+      name ILIKE :q OR
+      description ILIKE :q OR
+      users.first_name ILIKE :q OR
+      users.last_name ILIKE :q
+      SQL
+      @powers = @powers.joins(:user).where(sql_query, q: "%#{params[:powersearch]}%") if params[:powersearch].present?
+      @powers = @powers.where('category @@ ?', params[:category]) if params[:category].present?
     end
   end
 
