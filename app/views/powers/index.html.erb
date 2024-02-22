@@ -1,11 +1,20 @@
 <div class="background-banner">
   <h1 class="banger-font center text-center white-text">All Available Powers</h1>
   <div class="searchbar-middle">
-    <form method="get" action="<%= powers_path %>">
-      <input type="text" class= "banger-font wide-bar" name="powersearch" placeholder="Search powers...">
-      <button type="submit" class="banger-font">Search</button>
-      <button type="submit" name="q" value="" class="banger-font">Show All Powers</button>
-    </form>
+    <%= form_with url: powers_path, method: :get, class: "banger-font full-height" do %>
+      <%= text_field_tag :powersearch,
+            params[:powersearch],
+            class: "wide-bar full-height",
+            placeholder: "Search..."
+        %>
+      <%= select_tag :category,
+          options_for_select(Power::CATEGORIES.map { |category| [category.capitalize, category] }, params[:category]),
+          include_blank: "All",
+          class: "small-bar full-height"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <button type="submit" name="q" value="" class="btn btn-primary">Show All Powers</button>
+    <% end %>
   </div>
   <div class="card-container m-4">
     <% @powers.each do |power| %>
