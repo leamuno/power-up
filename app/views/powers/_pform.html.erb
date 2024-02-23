@@ -1,10 +1,12 @@
 <div class="half-size-form">
-  <%= simple_form_for @power, class:"text-white" do |f| %>
-    <%= f.input :name, input_html: { class: "input-bar" } %>
+  <%= simple_form_for @power, class:"text-white", data: { action: "keyup->preview#displayHtml" } do |f| %>
+    <%= f.input :name, input_html: { class: "input-bar", "data-preview-target": "preview.name" } %>
     <%= f.input :description, input_html: { class: "input-bar" } %>
-    <%= f.input :category, collection: Power::CATEGORIES, include_blank: false, input_html: { class: "input-bar" } %>
-    <%= f.input :price, as: :float, input_html: { class: "input-bar" } %>
+    <div class="d-flex justify-content-between">
+      <%= f.input :category, collection: Power::CATEGORIES, include_blank: false, input_html: { class: "input-bar" } %>
+      <%= f.input :price, as: :float, input_html: { class: "input-bar" } %>
+    </div>
     <%= f.input :photo, as: :file, input_html: { class: "input-bar" } %>
-    <%= f.button :submit, "List New Power", class: "submit-btn-red banger-font" %>
+    <%= f.button :submit, "Publish Power!", class: "submit-btn-red banger-font" %>
   <% end %>
 </div>

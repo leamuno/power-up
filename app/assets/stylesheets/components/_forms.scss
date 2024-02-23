@@ -1,17 +1,17 @@
 .half-size-form {
   background-color: rgba($gray-dark,0.95);
-  width: 50vw;
+  width: 40vw;
   display: flex;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 10px;
+  margin-top: 15px;
   border: solid black 10px;
   padding-bottom: 50px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: "Comic Neue", system-ui;
-  padding-top: 15px;
+  padding-top: 25px;
 }
 
 .half-size-form label {
@@ -23,10 +23,11 @@
   color: $black;
   background-color: $gray-light;
   width: 100%;
-  text-align: center;
   border: solid black 3px;
   margin-top: 10px;
   font-family: "Comic Neue", system-ui;
+  // transform: skew(-5deg);
+  box-shadow: black 3px 4px;
 }
 
 .first-label {
