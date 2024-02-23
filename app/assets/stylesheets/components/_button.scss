@@ -3,7 +3,6 @@
   color: $red;
   font-weight: bold;
   border: solid black 3px;
-  height: 25%;
   width: 100%;
   letter-spacing: 0.1rem;
   font-size: 1.2rem;
@@ -20,7 +19,6 @@
     background-color: $yellow;
     font-weight: bold;
     border: solid black 3px;
-    height: 25%;
     width: 100%;
     letter-spacing: 0.1rem;
     margin-left: auto;
@@ -33,4 +31,36 @@
 .grayed-button {
   background-color: $gray;
   color: $gray-dark;
+}
+
+.submit-btn-red2 {
+  background-color: $yellow;
+  color: $red;
+  font-weight: bold;
+  border: solid black 3px;
+  height: 25%;
+  width: 100%;
+  letter-spacing: 0.1rem;
+  font-size: 1.2rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  transition: box-shadow 0.3s, color 0.3s;
+  transform: skew(-5deg);
+  box-shadow: black 3px 4px;
+
+
+  &.submit-btn-red2:hover {
+    color: $red2;
+    background-color: $yellow;
+    font-weight: bold;
+    border: solid black 3px;
+    height: 25%;
+    width: 100%;
+    letter-spacing: 0.1rem;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: black 3px 4px 6px;
+    margin-top: 40px;
+  }
 }
