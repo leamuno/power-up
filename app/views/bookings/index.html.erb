@@ -47,11 +47,11 @@
               <div class="d-flex">
                 <%= simple_form_for booking do |f| %>
                   <%= f.input :status, as: :hidden, input_html: { value: true} %>
-                  <%= f.submit 'Accept', class: 'btn btn-info' %>
+                  <%= f.submit 'Accept', class: 'btn btn-info mb-1 accept-reject-button-beautiful' %>
                 <% end %>
                 <%= simple_form_for booking do |f| %>
                   <%= f.input :status, as: :hidden, input_html: { value: false} %>
-                  <%= f.submit 'Reject', class: 'btn btn-light' %>
+                  <%= f.submit 'Reject', class: 'btn btn-light mb-1 accept-reject-button-beautiful' %>
                 <% end %>
               </div>
             <% else %>
