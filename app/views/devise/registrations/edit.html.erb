@@ -1,36 +1,40 @@
-<h1>Edit <%= resource_name.to_s.humanize %></h1>
-<div class="px-3 bg-secondary mx-5">
+<h1 class="banger-font center text-center white-text black-border">Edit <%= resource_name.to_s.humanize %></h1>
+<div class="half-size-form" style="width: 550px; margin: 0 auto;">
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= f.error_notification %>
     <%= f.input :email, required: true, autofocus: true,
-                label_html: { class: "text-light" } %>
+                label_html: { class: "text-light" },
+                input_html: { class: "input-bar" } %>
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
     <%= f.input :alias,
-                label_html: { class: "text-light" } %>
+                label_html: { class: "text-light" },
+                input_html: { class: "input-bar" } %>
     <%= f.input :secret_identity,
-                label_html: { class: "text-light" } %>
+                label_html: { class: "text-light" },
+                input_html: { class: "input-bar" } %>
     <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",
                 required: false,
                 label_html: { class: "text-light" },
-                input_html: { autocomplete: "new-password" } %>
+                input_html: { class: "input-bar", autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
                 required: false,
                 label_html: { class: "text-light" },
-                input_html: { autocomplete: "new-password" } %>
+                input_html: { class: "input-bar", autocomplete: "new-password" } %>
     <%= f.input :current_password,
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 label_html: { class: "text-light" },
-                input_html: { autocomplete: "current-password" } %>
+                input_html: { class: "input-bar", autocomplete: "current-password" } %>
     <%= f.input :photo, as: :file,
-                label_html: { class: "text-light" } %>
-    <%= f.button :submit, "Update", class: "text-light btn-primary"%>
+                label_html: { class: "text-light" },
+                input_html: { class: "input-bar" } %>
+    <%= f.button :submit, "Update", class: "btn submit-btn-red banger-font"%>
   <% end %>
 </div>
-<h1>My Powers</h1>
+<h1 class="banger-font center text-center white-text black-border">My Powers</h1>
 <div class="card-container m-4">
   <% current_user.powers.each do |power| %>
     <%= link_to edit_power_path(power) do %>
@@ -48,17 +52,18 @@
   <% end %>
   <%= link_to new_power_path do %>
     <div class="card-power">
-      <%= image_tag "pow.png", height: 300, width: 400, crop: :fill %>
-      <div class="card-power-infos">
-        <div>
+      <%= image_tag "plus.png", height: 300, width: 400, crop: :fill %>
+      <div class="card-power-infos-plus">
+        <div class="spacing">
           <h2>List New Power</h2>
+          <p><%=%></p>
         </div>
       </div>
     </div>
   <% end %>
 </div>
-<h1>Cancel my account</h1>
-<div class="px-3 bg-secondary mx-5">
-  <div class="text-light">Unhappy? <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-  <%= link_to "Home", root_path, class: "text-decoration-none text-light" %>
+<h1 class="banger-font center text-center white-text black-border">Cancel my account</h1>
+<div class="half-size-form" style="height: 125px; width: 250px; text-align: center;">
+    <%= button_to "Delete Account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "btn submit-btn-red banger-font", style: "width: 175px;" %>
+  </div>
 </div>
