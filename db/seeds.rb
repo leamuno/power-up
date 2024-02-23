@@ -98,7 +98,7 @@ users.each.with_index do |user_names,index|
   puts "Creating #{user.alias}"
   file = URI.open(users_url[index])
   user.photo.attach(io: file, filename: "#{user.alias}.png", content_type: "image/png")
-  user.save
+  user.save!
 
   puts "creating powers for #{user.alias}"
   count = 0
