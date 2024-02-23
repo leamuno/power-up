@@ -6,6 +6,7 @@
         <div class="power-image-container">
           <%= cl_image_tag @power.photo.key, height: 350, width: 500, crop: :fill, class:'power-show-display-image' %>
           <%= cl_image_tag(@power.user.photo.key, width: 90, height: 90, crop: :thumb, gravity: :face, class: "power-show-user-avatar") %>
+          <p class="power-price-tag banger-font"><strong>$<span id="power-price-for-calculation"><%= @power.price %></span>0</strong></p>
           <div class="power-price-tag">
             <h2 class="banger-font">$<%= @power.price %>0</h2>
             <p class="banger-font">/day</p>

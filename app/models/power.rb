@@ -11,4 +11,9 @@ class Power < ApplicationRecord
   validates :category, presence: true, inclusion: { in: Power::CATEGORIES }
   validates :price, presence: true, numericality: { only_float: true }
 
+  def unavailable_dates
+    bookings.pluck(:start_date, :end_date).map do |range|
+      { from: range[0], to: range[1] }
+    end
+  end
 end
