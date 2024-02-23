@@ -14,20 +14,20 @@
         <div class="power-text-top-row">
           <% if @power.category == 'strength' %>
             <i class="fa-solid fa-hand-fist power-icon"></i>
-            <p class="comic-font"><%= @power.user.first_name %> <%= @power.user.last_name %>: <%= @power.name.capitalize %></p>
+            <p class="comic-font"><%= @power.user.alias %>: <%= @power.name.capitalize %></p>
           <% elsif @power.category == 'agility'%>
             <i class="fa-solid fa-feather-pointed"></i>
-            <p class="comic-font"><%= @power.user.first_name %> <%= @power.user.last_name %>: <%= @power.name.capitalize %></p>
+            <p class="comic-font"><%= @power.user.alias %>: <%= @power.name.capitalize %></p>
           <% elsif @power.category == 'magic'%>
             <i class="fa-solid fa-wand-magic-sparkles"></i>
-            <p class="comic-font"><%= @power.user.first_name %> <%= @power.user.last_name %>: <%= @power.name.capitalize %></p>
+            <p class="comic-font"><%= @power.user.alias %>: <%= @power.name.capitalize %></p>
           <% elsif @power.category == 'mental'%>
             <i class="fa-solid fa-brain"></i>
             <p>
-              <p class="comic-font"><%= @power.user.first_name %> <%= @power.user.last_name %>: <%= @power.name.capitalize %></p>
+              <p class="comic-font"><%= @power.user.alias %>: <%= @power.name.capitalize %></p>
             <% else %>
               <i class="fa-solid fa-ghost"></i>
-              <p class="comic-font"><%= @power.user.first_name %> <%= @power.user.last_name %>: <%= @power.name.capitalize %></p>
+              <p class="comic-font"><%= @power.user.alias %>: <%= @power.name.capitalize %></p>
             <% end %>
           </div>
           <hr>
@@ -35,14 +35,11 @@
         </div>
       </div>
     </div>
-
     <br>
-
-<div class="booking-form-related-card-container">
-    <div class="booking-form-container">
-    <%= render 'powers/form' %>
-
-    </div>
+    <div class="booking-form-related-card-container">
+      <div class="booking-form-container">
+        <%= render 'powers/form' %>
+      </div>
       <h2 class="banger-font center text-center white-text">Related Powers</h2>
       <div class="card-container m-4">
         <% @related_powers.each do |power| %>
