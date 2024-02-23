@@ -4,7 +4,7 @@ import flatpickr from "flatpickr";
 // Connects to data-controller="datepicker"
 
 export default class extends Controller {
-  static values = { default: String, unavailable: Array }
+  static values = {unavailable: Array }
 
   connect() {
     const sum_field = document.querySelector('#total')
@@ -14,23 +14,18 @@ export default class extends Controller {
     cost_calculation_field.innerHTML = `${daily_rate}0$ X 2 Days`
     sum_field.innerHTML = `Total: ${parseInt(daily_rate) + parseInt(daily_rate)}.00$`
 
-    let end_date = document.querySelector('#booking_end_date').value
-    let start_date = document.querySelector('#booking_start_date').value
-    const end_date_input = document.querySelector('#booking_end_date')
-    const start_date_input = document.querySelector('#booking_start_date')
+
 
     const config = {
       "plugins": [new rangePlugin({ input: "#booking_end_date"})],
       disable: this.unavailableValue,
       mode: 'range',
       dateFormat: "Y-m-d",
-      defaultDate: 'today',
     };
 
     flatpickr(this.element, config, {
     });
 
-    end_date_input.value = end_date;
 
     onchange = function(dateObj) {
 
