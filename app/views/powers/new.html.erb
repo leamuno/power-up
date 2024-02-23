@@ -1,4 +1,18 @@
-<h1 class="banger-font center text-center white-text">List a New Power</h1>
-<div class="">
-  <%= render 'powers/pform' %>
+<% raw_html = '<div class="card-power"><img src="../../assets/images/pow.png" data-preview-target="photo"><div class="card-power-infos"><div><h2 data-target="preview.name">{{{name}}}</h2><p>{{{description}}}</p></div><div class="card-power-pricing"><h2>${{{price}}}.00</h2><p class="banger-font">/day</p></div></div></div>' %>
+<div data-controller="preview" data-preview-raw-html="<%= raw_html %>">
+  <h1 class="banger-font center text-center white-text">Your New Power</h1>
+  <div class="d-flex justify-content-between">
+    <div class="half-size-form">
+      <%= simple_form_for @power, class:"text-white", data: { action: "keyup->preview#displayHtml" } do |f| %>
+        <%= f.input :name, input_html: { class: "input-bar", "data-preview-target": "name", data: { action: "keyup->preview#displayHtml" } } %>
+        <%= f.input :description, input_html: { class: "input-bar", "data-preview-target": "description", data: { action: "keyup->preview#displayHtml" } } %>
+        <div class="d-flex justify-content-between">
+          <%= f.input :category, collection: Power::CATEGORIES, include_blank: false, input_html: { class: "input-bar" } %>
+          <%= f.input :price, as: :float, input_html: { class: "input-bar", "data-preview-target": "price", data: { action: "keyup->preview#displayHtml" } } %>
+        </div>
+        <%= f.input :photo, as: :file, input_html: { class: "input-bar", "data-preview-target": "inputPhoto", data: { action: "input->preview#displayPhoto" } } %>        <%= f.button :submit, "Publish Power!", class: "submit-btn-red banger-font" %>
+      <% end %>
+    </div>
+    <div data-preview="preview" class="single-card-container" id="preview-card"></div>
+  </div>
 </div>
