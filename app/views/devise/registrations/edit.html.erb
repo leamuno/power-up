@@ -45,7 +45,10 @@
             <h2><%= power.name %>  </h2>
             <p><%= power.description %></p>
           </div>
-          <h2 class="card-power-pricing">$<%= power.price %>0</h2>
+          <div class="card-power-pricing">
+            <h2 class="">$<%= power.price %>0</h2>
+            <p class="banger-font">/day</p>
+          </div>
         </div>
       </div>
     <% end %>
@@ -64,6 +67,6 @@
 </div>
 <h1 class="banger-font center text-center white-text black-border">Cancel my account</h1>
 <div class="half-size-form" style="height: 125px; width: 250px; text-align: center;">
-    <%= button_to "Delete Account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "btn submit-btn-red banger-font", style: "width: 175px;" %>
-  </div>
+  <%= button_to "Delete Account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "btn submit-btn-red banger-font", style: "width: 175px;" %>
+</div>
 </div>
