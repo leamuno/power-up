@@ -8,10 +8,10 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
-    <%= f.input :first_name,
+    <%= f.input :alias,
                 label_html: { class: "text-light" },
                 input_html: { class: "input-bar" } %>
-    <%= f.input :last_name,
+    <%= f.input :secret_identity,
                 label_html: { class: "text-light" },
                 input_html: { class: "input-bar" } %>
     <%= f.input :password,

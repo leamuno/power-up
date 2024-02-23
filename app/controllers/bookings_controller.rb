@@ -3,9 +3,8 @@ class BookingsController < ApplicationController
   end
 
   def create
-    dates = params[:booking][:start_date].split(" to ")
-    start_date = DateTime.parse(dates.first)
-    end_date = DateTime.parse(dates.last)
+    start_date = params[:booking][:start_date]
+    end_date = params[:booking][:end_date]
     @power = Power.find(params[:power_id])
     @booking = Booking.new(booking_params)
     @booking.start_date = start_date
