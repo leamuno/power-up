@@ -6,7 +6,7 @@
   padding: 20px 50px 20px 50px;
   border: solid black 5px;
   //border-radius: 10px;
-  width: 30vw;
+  width: 90%;
   height: 60vh;
 }
 
@@ -33,4 +33,13 @@
 
 .booking-form-container .form-label {
   display: none;
+}
+
+.booking-form-container .calendar-elements {
+  display: flex;
+}
+
+#total-container {
+  width: 100%;
+  text-align: right;
 }
