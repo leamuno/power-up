@@ -1,19 +1,18 @@
 <h2 class="booking-form-title banger-font">Booking Form</h2>
+<p class='fw-bold fs-3'>$<%= @power.price %>0 <small class='fw-light'>day</small></p>
+
 <%= simple_form_for [@power, @booking] do |f| %>
   <div class="form-start-label">
     <span>From:</span>
   </div>
-  <%= f.input :start_date, as: :string, input_html: { data: { controller: "datepicker", datepicker_default_value: 'today', datepicker_unavailable_value: @power.unavailable_dates.to_json }}, class: "flatpickr-range-time" %>
+  <%= f.input :start_date, as: :string, input_html: { data: { controller: "datepicker", datepicker_unavailable_value: @power.unavailable_dates.to_json, datepicker_default_value: "2022-04-22" }}, class: "flatpickr-range-time" %>
   <div class="form-end-label">
     <span>To:</span>
-    <%= f.input :end_date, as: :string, class: "end-date", input_html: { value: Date.tomorrow.strftime("%Y-%m-%d") } %>
+    <%= f.input :end_date, as: :string, input_html: { value: Date.tomorrow.strftime("%Y-%m-%d"), class: "end-date" } %>
+  </div>
+  <div id="total-container">
+    <span id="cost-calculation"></span>
+    <span id="total"></span>
   </div>
   <%= f.button :submit, 'Power UP!', class: ['submit-btn-red banger-font'] %>
 <% end %>
-
-<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/plugins/rangePlugin.js"></script>
-
-
-<!--
-
--->
