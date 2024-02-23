@@ -1,20 +1,27 @@
-<h1>Edit <%= @power.name %></h1>
-<div class="px-3 bg-secondary mx-5">
+<h1 class="banger-font center text-center white-text black-border">Edit <%= @power.name %></h1>
+<div class="half-size-form" style="width: 550px; margin: 0 auto;">
   <%= simple_form_for(@power) do |f| %>
     <%= f.error_notification %>
     <%= f.input :name,
-                label_html: { class: "text-light" } %>
+                label_html: { class: "text-light" },
+                input_html: { class: "input-bar" } %>
     <%= f.input :description,
-                label_html: { class: "text-light" } %>
+                label_html: { class: "text-light" },
+                input_html: { class: "input-bar" } %>
     <%= f.input :price, as: :float,
-                label_html: { class: "text-light" } %>
+                label_html: { class: "text-light" },
+                input_html: { class: "input-bar" } %>
     <%= f.input :photo, as: :file,
-                label_html: { class: "text-light" } %>
-    <%= f.button :submit, "Update", class: "text-light btn-primary"%>
+                label_html: { class: "text-light" },
+                input_html: { class: "input-bar" } %>
+    <%= f.button :submit, "Update", class: "btn submit-btn-red banger-font" %>
   <% end %>
 </div>
-<h1>Delete <%= @power.name %> </h1>
-<div class="px-3 bg-secondary mx-5">
-  <div class="text-light"><%= button_to "Delete Power", power_path(@power), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-  <%= link_to "Home", root_path, class: "text-decoration-none text-light" %>
-</div>
+<h1 class="banger-font center text-center white-text black-border">Delete <%= @power.name %> </h1>
+  <div class="half-size-form" style="height: 125px; width: 250px; margin: 0 auto; text-align: center;">
+    <div class="text-light">
+      <%= button_to "Delete Power", power_path(@power), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "btn submit-btn-red banger-font", style: "width: 150px;" %>
+    </div>
+  </div>
+
+<%# <%= link_to "Home", root_path, class: "btn submit-btn-red banger-font", style: "width: 125px; margin: 40px auto;" %>
