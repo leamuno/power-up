@@ -6,7 +6,7 @@
     <div class="start-end-labels">
       <div class="form-start-label">
         <span>From:</span>
-        <%= f.input :start_date, as: :string, input_html: { data: { controller: "datepicker", datepicker_unavailable_value: @power.unavailable_dates.to_json, datepicker_default_value: "2022-04-22" }}, class: "flatpickr-range-time" %>
+        <%= f.input :start_date, as: :string, input_html: { data: { controller: "datepicker", datepicker_unavailable_value: @power.unavailable_dates.to_json }}, class: "flatpickr-range-time" %>
       </div>
       <div class="form-end-label">
         <span>To:</span>
