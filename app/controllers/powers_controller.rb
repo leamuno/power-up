@@ -6,8 +6,8 @@ class PowersController < ApplicationController
       sql_query = <<~SQL
       name ILIKE :q OR
       description ILIKE :q OR
-      users.first_name ILIKE :q OR
-      users.last_name ILIKE :q
+      users.alias ILIKE :q OR
+      users.secret_identity ILIKE :q
       SQL
       @powers = @powers.joins(:user).where(sql_query, q: "%#{params[:powersearch]}%") if params[:powersearch].present?
       @powers = @powers.where('category @@ ?', params[:category]) if params[:category].present?
