@@ -26,7 +26,7 @@ users_url = [
   "https://www.desktopbackground.org/p/2013/10/29/661640_kurapika_874x815_h.jpg",
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGBRA_hjvcXaqbQqmLPACCsmavZKXtHZiSd7W0Re5vSg&s",
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRqD8imNt5rbq9urZ9MIliWku7lqvSSu5egE8FwPxHaA&s",
-  "https://c4.wallpaperflare.com/wallpaper/413/747/792/bleach-ichigo-kurosaki-wallpaper-preview.jpg",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQRNDB2rxQ_LEz0Z05VcEc5LqLNwiRIlFfKo27IVMYtA&s",
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaWFZeAL1Fty0H5QMM1mgskNiwQYV-SuB6CQ&usqp=CAU",
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9iyCX9XOeNM6xKuJWXmWWvTWlI5XP1F1Aqw&usqp=CAU",
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeYC_O23ECdXKU9tYfuiXfmLytC2d3kd6tJiaRkOCWHQ&s",
