@@ -11,8 +11,8 @@ export default class extends Controller {
     const cost_calculation_field = document.querySelector('#cost-calculation')
 
     const daily_rate = document.querySelector('#power-price-for-calculation').innerHTML
-    cost_calculation_field.innerHTML = `${daily_rate}0 X 1 Days`
-    sum_field.innerHTML = `Total: ${parseInt(daily_rate)}.00$`
+    cost_calculation_field.innerHTML = `${daily_rate}0$ X 2 Days`
+    sum_field.innerHTML = `Total: ${parseInt(daily_rate) + parseInt(daily_rate)}.00$`
 
     let end_date = document.querySelector('#booking_end_date').value
     let start_date = document.querySelector('#booking_start_date').value
