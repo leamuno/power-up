@@ -109,7 +109,7 @@ users.each.with_index do |user_names,index|
     puts "creating #{power.name}"
     file = URI.open(images[count])
     power.photo.attach(io: file, filename: "#{power_attributes[count][:name]}.png", content_type: "image/png")
-    power.save
+    power.save!
     count += 1
   end
 end
@@ -119,7 +119,7 @@ puts "creating bookings"
   user = User.all.sample
   powers = Power.where.not(user: user)
   power = powers.sample
-  Booking.create!(user: user, power: power, start_date: DateTime.now, end_date: DateTime.now + rand(1..7) )
+  Booking.create!(user: user, power: power, start_date: DateTime.now, end_date: DateTime.now + rand(1..7))
 end
 
 puts "complete"
