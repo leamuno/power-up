@@ -41,6 +41,7 @@
 .power-image-container {
   position: relative;
   width: 90%;
+  background-color: $gray-light;
 }
 
 .power-show-display-image {
@@ -96,15 +97,16 @@
   border-radius: 50%;
   width: 25%;
   height: 20%;
-  display: block;
+  display: flex;
+  justify-content: center;
   font-size: 1.3rem;
+
 }
 
 .power-price-tag h2 {
   font-weight: bold;
   position: absolute;
   top: 10px;
-  right: 20px;
   font-size: 120%;
   text-align: center;
 }
@@ -127,15 +129,23 @@
 
 .start-end-labels {
   display: flex;
+  width: 70%;
 }
 
-#total-container {
-  display: flex;
-  flex-direction: column;
+.start-end-labels span {
+  margin-bottom: 10px;
 }
 
 #total-container span {
   margin-bottom: 10px;
   text-align: right;
   font-size: 1.3rem;
+}
+
+.related-card-container {
+  margin-top: 30px;
+}
+
+.related-card-container .card-power-pricing {
+  width: 50%;
 }

@@ -10,6 +10,7 @@
   height: 60vh;
 }
 
+
 .booking-form-container .date {
   font-weight: bold;
   color: $gray-dark;
@@ -21,7 +22,7 @@
   color: $red;
   top: 20px;
   left: 30px;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .booking-form-container .simple_form {
@@ -42,4 +43,21 @@
 #total-container {
   width: 100%;
   text-align: right;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.booking_start_date input {
+  height: 60px;
+  border-radius: 200px 0px 0px 200px;
+  border: solid black 3px;
+  border-right: solid gray 0.5px;
+}
+
+.booking_end_date input {
+  height: 60px;
+  border-radius: 0px 200px 200px 0px;
+  border: solid black 3px;
+  border-left: solid gray 0.5px;
 }
