@@ -1,1 +1,1 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+An airbnb like app that allows heroes to rent out their powers or borrow some from fellow heroes before a tough battle.
