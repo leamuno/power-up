@@ -1,24 +1,37 @@
-<h2>Sign up</h2>
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-  <div class="form-inputs">
-    <%= f.input :alias %>
-    <%= f.input :secret_identity %>
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :photo, as: :file %>
-  </div>
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
+<h1 class="banger-font center text-center white-text black-border">Sign Up</h1>
+<div class="half-size-form bg-secondary" style="width: 550px; margin: 0 auto;">
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+    <div class="form-inputs banger-font text-dark">
+      <%= f.input :alias,
+                  label_html: { class: "text-light banger-font black-border" },
+                  input_html: { class: "input-bar" }  %>
+      <%= f.input :secret_identity,
+                  label_html: { class: "text-light banger-font black-border" },
+                  input_html: { class: "input-bar" }  %>
+      <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  label_html: { class: "text-light banger-font black-border" },
+                  input_html: { autocomplete: "email", class: "input-bar" }%>
+      <%= f.input :password,
+                  required: true,
+                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                  hint_html: { class: "banger-font" },
+                  label_html: { class: "text-light banger-font black-border" },
+                  input_html: { autocomplete: "new-password", class: "input-bar" } %>
+      <%= f.input :password_confirmation,
+                  required: true,
+                  label_html: { class: "text-light banger-font black-border" },
+                  input_html: { autocomplete: "new-password", class: "input-bar" } %>
+      <%= f.input :photo,
+                  as: :file,
+                  label_html: { class: "text-light banger-font black-border" },
+                  input_html: { autocomplete: "email", class: "input-bar" }%>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit, "Sign up", class: "btn submit-btn-red banger-font black-border" %>
+    </div>
+  <% end %>
+</div>
 <%= render "devise/shared/links" %>
